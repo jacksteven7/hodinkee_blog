@@ -1,4 +1,4 @@
-blogs = Blog.create([
+articles = Article.create([
   {
     title: "Speedmaster Professional Moonwatch",
     content: "It may only be the start of 2021, but today Omega set the tone for its year, unveiling the latest update to its iconic Speedmaster Professional Moonwatch. The Moonwatch— which is best known for accompanying NASA astronauts in their journeys to the watch’s namesake celestial body from 1969 and onward — is today one of the watch world’s most recognizable models. In an effort to stay true to that history, and to maintain that iconic energy, the brand has chosen to update the latest releases on the technical side rather than stylistically. The most substantial upgrades are the inclusion of a new Master Chronometer-certified movement — 2019’s Caliber 3861, which replaces the Moonwatch’s previous standard Caliber, the 1861 — as well as several new case-material options.",
