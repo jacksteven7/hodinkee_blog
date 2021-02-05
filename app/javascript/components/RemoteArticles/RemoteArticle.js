@@ -1,29 +1,28 @@
-import React from 'react'
+import React from 'react' 
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Article = (props) => {
-  
+const RemoteArticle = (props) => {
+
+  const { title, description, urlToImage, url } = props.attributes
+
   return (
-    <Art>
+  
+        <Art>
       <table>
         <tbody>
           <tr>
             <td>
               <Title>
-                <Link to  ={`/local_articles/${props.attributes.id}`}> 
-                  <h2>
-                    {props.attributes.title}
-                  </h2>
-                </Link>
-                <div>{props.attributes.content}</div>
+                <Link to ={url}> <h2>{title}</h2></Link>
+                <div>{description}</div>
               </Title>
             </td>
             <td>
               <Image>
-                <Link to  ={`/local_articles/${props.attributes.id}`}> 
+                <Link to  ={url}> 
                   <div className="article-image">
-                    <img src={props.attributes.image_url} /> 
+                    <img src={urlToImage} /> 
                   </div>
                 </Link>
               </Image>
@@ -54,4 +53,4 @@ const Image = styled.div`
   }
 `
 
-export default Article
+export default RemoteArticle

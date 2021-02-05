@@ -4,7 +4,7 @@ module Api
       protect_from_forgery with: :null_session
 
       def index
-        articles = Article.all
+        articles = Article.all.order(created_at: :desc)
 
         render json: ArticleSerializer.new(articles).serialized_json
       end
