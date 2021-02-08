@@ -9,7 +9,7 @@ const ArticleForm = (props) => {
           onChange={props.handleChange}
           type="text"
           name="title"
-          value="Casio"
+          value={props.article.title}
           placeholder="Post title"
           required
         />
@@ -19,7 +19,7 @@ const ArticleForm = (props) => {
           onChange={props.handleChange}
           type="text"
           name="content"
-          value="ALKjsdlkasdhfakl"
+          value={props.article.content}
           placeholder="Post content"
           required
         />
@@ -29,7 +29,7 @@ const ArticleForm = (props) => {
           onChange={props.handleChange}
           type="text"
           name="image_url"
-          value="Url test"
+          value={props.article.image_url}
           placeholder="Img url"
           required
         />

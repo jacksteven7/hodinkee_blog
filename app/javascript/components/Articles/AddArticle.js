@@ -3,32 +3,42 @@ import styled from "styled-components";
 import ArticleForm from "./ArticleForm";
 import axios from "axios";
 import Alert from "react-bootstrap/Alert";
-import { useHistory } from "react-router-dom";
 
 const AddArticle = (props) => {
-  const [article, setArticle] = useState({});
+  const [article, setArticle] = useState({
+    title: "",
+    content: "",
+    image_url: "",
+  });
+
   const [showAlert, setShowAlert] = useState(false);
-  const history = useHistory();
 
   const handleChange = (e) => {
+    e.preventDefault();
     setArticle(Object.assign({}, article, { [e.target.name]: e.target.value }));
     console.log("article: ", article);
   };
 
-  const redirect = () => {
-    history.push("/local_articles");
-  };
-
   const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const csrfToken = document
+      .querySelector('meta[name="csrf-token"]')
+      .getAttribute("content");
+    axios.defaults.headers.common["X-CSRF-TOKEN"] = csrfToken;
+
     axios
       .post("/api/v1/articles", { article })
       .then((resp) => {
-        console.log(resp);
         setShowAlert(true);
-        //history.push("/local_articles");
-        window.location();
+        setArticle({ title: "", content: "", image_url: "" });
+        setTimeout(function () {
+          setShowAlert(false);
+        }, 3000);
       })
-      .catch((resp) => console.log(resp));
+      .catch((resp) => {
+        console.log(resp);
+      });
   };
 
   return (
@@ -39,7 +49,6 @@ const AddArticle = (props) => {
           <Alert.Heading>Post successfully created!</Alert.Heading>
         </Alert>
       )}
-      <button onClick={redirect}>Push</button>
       <ArticleForm
         handleChange={handleChange}
         handleSubmit={handleSubmit}

@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Settings
 
-Things you may want to cover:
+- Clone repository
+  git clone https://github.com/jacksteven7/hodinkee_blog.git
 
-* Ruby version
+- Go inside the project
+  `cd hodinkee_blog`
 
-* System dependencies
+- Bundle the project
+  `bundle install`
 
-* Configuration
+- Create databases
+  `rake db:create`
 
-* Database creation
+- Run migrations
+  `rake db:migrate`
 
-* Database initialization
+- Install react dependencies
+  `yarn install`
 
-* How to run the test suite
+- Start server
+  `rails s`
 
-* Services (job queues, cache servers, search engines, etc.)
+- Run specs
 
-* Deployment instructions
+in another tab, run `rspec` to run all the specs
 
-* ...
+## Testing

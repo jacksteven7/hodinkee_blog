@@ -27,8 +27,7 @@ module Api
 
       def update
         article = Article.find_by(id: params[:id])
-
-        if Article.update(article_params)
+        if article.update(article_params)
           render json: ArticleSerializer.new(article).serialized_json
         else
           render json: { error: Article.errors.messages }, status: 422
