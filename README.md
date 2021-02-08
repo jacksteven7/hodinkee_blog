@@ -28,3 +28,5 @@
 in another tab, run `rspec` to run all the specs
 
 ## Testing
+
+This is the postman collection to test the Rails API
